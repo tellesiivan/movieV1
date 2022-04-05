@@ -5,7 +5,7 @@ export default function Layout({ children }) {
   return (
     <div>
       <Header />
-      <main className="min-h-screen bg-slate-100">{children}</main>
+      <main className="min-h-screen bg-slate-900">{children}</main>
     </div>
   );
 }
