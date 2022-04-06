@@ -1,9 +1,9 @@
 import Head from "next/head";
-import Image from "next/image";
+import request from "../utils/request";
 import Navbar from "../components/Navbar";
 import Results from "../components/results/Results";
 
-export default function Home() {
+export default function Home({ data }) {
   return (
     <div>
       <Head>
@@ -12,7 +12,26 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navbar />
-      <Results />
+
+      <Results results={data.results} />
     </div>
   );
+}
+
+export async function getServerSideProps(context) {
+  const { type } = context.query;
+
+  const url = type
+    ? `https://api.themoviedb.org/3${request[type].url}`
+    : `https://api.themoviedb.org/3${request["fetchTrending"].url}`;
+
+  const req = await fetch(url);
+
+  const data = await req.json();
+
+  return {
+    props: {
+      data,
+    },
+  };
 }
