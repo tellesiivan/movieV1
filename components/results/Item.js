@@ -3,14 +3,18 @@ import Image from "next/image";
 export default function Item({ result }) {
   const based_path = "https://image.tmdb.org/t/p/w500/";
 
+  const path = "/images/blurPlaceholder.png";
+
   return (
     <li key={result.id} className="relative">
-      <div className="group block w-full aspect-w-10 aspect-h-7 rounded-lg bg-gray-100 overflow-hidden ">
+      <div className="group block w-full aspect-w-10 aspect-h-7 rounded-lg overflow-hidden ">
         <Image
           src={`${based_path}${result.backdrop_path}`}
           alt={result.id}
           layout="responsive"
           height={70}
+          placeholder="blur"
+          blurDataURL={path}
           width={140}
           className="object-cover pointer-events-none group-hover:opacity-75 group-hover:scale-110 ease-in duration-200 "
         />

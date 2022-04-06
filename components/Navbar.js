@@ -27,7 +27,7 @@ export default function Navbar() {
   );
 
   function classActive(key) {
-    const check = key === currentT ? "bg-slate-600 text-white" : " ";
+    const check = key === currentT ? "bg-teal-300 text-slate-900 " : " ";
     return check;
   }
 
@@ -51,7 +51,7 @@ export default function Navbar() {
   return (
     <div
       className={`px-4 py-2 sticky top-0 z-50 ease-in duration-500 ${
-        navChanged ? "bg-slate-600" : "bg-slate-800"
+        navChanged ? "bg-main-nav navBlur" : "bg-slate-800"
       }`}
       ref={navRef}
     >
