@@ -27,16 +27,16 @@ export default function Navbar() {
   );
 
   function classActive(key) {
-    const check = key === currentT ? "bg-gray-200 text-black" : "";
+    const check = key === currentT ? "bg-slate-600 text-white" : " ";
     return check;
   }
 
   const breakdown = Object.entries(request).map(([key, { title }]) => (
-    <h1
+    <p
       key={key}
       className={`cursor-pointer text-xs text-slate-100 px-3 py-0.5 rounded-full ${classActive(
         key
-      )} hover:bg-gray-700 ease-in duration-300`}
+      )}  hover:bg-gray-700 ease-in duration-300`}
       onClick={() =>
         router.push({
           pathname: "/",
@@ -45,15 +45,13 @@ export default function Navbar() {
       }
     >
       {title}
-    </h1>
+    </p>
   ));
 
   return (
     <div
-      className={`px-4 py-2 border-b sticky top-0 z-50 ease-in duration-500 ${
-        navChanged
-          ? "bg-teal-300 border-teal-400"
-          : "bg-gray-200 border-gray-200"
+      className={`px-4 py-2 sticky top-0 z-50 ease-in duration-500 ${
+        navChanged ? "bg-slate-600" : "bg-slate-800"
       }`}
       ref={navRef}
     >
