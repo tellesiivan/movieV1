@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.navBlur {
+  backdrop-filter: saturate(180%) blur(7px);
+}
