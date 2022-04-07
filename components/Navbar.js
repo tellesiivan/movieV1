@@ -27,14 +27,15 @@ export default function Navbar() {
   );
 
   function classActive(key) {
-    const check = key === currentT ? "bg-teal-300 text-slate-900 " : " ";
+    const check =
+      key === currentT ? "bg-teal-300 text-slate-900 " : "text-slate-100";
     return check;
   }
 
   const breakdown = Object.entries(request).map(([key, { title }]) => (
     <p
       key={key}
-      className={`cursor-pointer text-xs text-slate-100 px-3 py-0.5 rounded-full ${classActive(
+      className={`cursor-pointer text-xs px-3 py-0.5 rounded-full ${classActive(
         key
       )}  hover:bg-gray-700 ease-in duration-300`}
       onClick={() =>
